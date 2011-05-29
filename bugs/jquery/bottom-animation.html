@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>jQuery Animation Bug</title>
+	<style>
+	#outer {
+        position: relative;
+        height: 100px;
+        width: 10px; /* remove this to make it work */
+    }
+    #inner {
+        position: absolute;
+        bottom: 30%;
+        background-color: #000;
+        width: 10px;
+        height: 10px;
+    }
+    </style>
+	<script src="http://code.jquery.com/jquery-1.4.4.js"></script>
+	<script>
+	$(function() {
+		$( "#inner" ).animate({ bottom: "0%" });
+	});
+	</script>
+</head>
+<body>
+
+<a href="http://jsfiddle.net/DjM8u/">http://jsfiddle.net/DjM8u/</a>
+
+<div id="outer">
+    <div id="inner"></div>
+</div>
+
+</body>
+</html>

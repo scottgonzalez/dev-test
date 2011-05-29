@@ -1,0 +1,27 @@
+h1 {
+	text-align: center;
+	padding: .2em .5em;
+}
+.notice {
+	padding: .2em .5em;
+	display: inline-block;
+	max-width: 28em;
+	*width: 28em;
+}
+table {
+	border: 1px solid #000;
+	border-collapse: collapse;
+}
+th, td {
+	border: 1px solid #000;
+	padding: 5px 10px;
+}
+td.none {
+	background-color: #f66;
+}
+td.limited {
+	background-color: #ff6;
+}
+td.unlimited {
+	background-color: #6f6;
+}

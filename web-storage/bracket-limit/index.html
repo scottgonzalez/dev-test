@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>localStorage Limit Test</title>
+	<script src="bracket-limit.js"></script>
+</head>
+<body>
+
+<p>IE 9 doesn't enforce localStorage quotas when setting values via bracket notation.</p>
+<p>This test will store 6 MB of data into localStorage, then reload the page and show
+the first and last values that were stored. The last value will be undefined because
+it exceeded the storage quota, even though no error was thrown.</p>
+
+<div id="output"></div>
+
+</body>
+</html>

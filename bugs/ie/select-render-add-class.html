@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>IE Bug: Rendering of selects when dynamically adding class</title>
+	<style>
+	.big { font-size: 1.5em; }
+	.big select { font-size: 1em; }
+	</style>
+	<script>
+	window.onload = function() {
+		document.getElementById( "wrapper" ).className = "big";
+	};
+	</script>
+</head>
+<body>
+
+<div id="wrapper">
+	<select>
+		<option>this is an option</option>
+	</select>
+</div>
+
+<p>Dynamically adding a class which changes the font size causes select elements
+to render incorrectly.</p>
+
+</body>
+</html>

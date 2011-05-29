@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>#3838 - $(DOCUMENT).HEIGHT() INCORRECT IN IE 6</title>
+	<script src="http://code.jquery.com/jquery-1.6.js"></script>
+	<script>
+	$(function() {
+		alert(
+			"jquery: " + $.fn.jquery + "\n" +
+			"document: " + $( document ).height() + "\n" +
+			"window: " + $( window ).height()
+		);
+	});
+	</script>
+</head>
+<body>
+</body>
+</html>
