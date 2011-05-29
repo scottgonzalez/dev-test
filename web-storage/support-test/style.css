@@ -5,8 +5,8 @@ h1 {
 .notice {
 	padding: .2em .5em;
 	display: inline-block;
-	max-width: 28em;
-	*width: 28em;
+	max-width: 35em;
+	*width: 35em;
 }
 table {
 	border: 1px solid #000;
