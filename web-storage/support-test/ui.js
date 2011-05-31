@@ -74,7 +74,7 @@ function renderResults() {
 		return num + " " + label;
 	}
 
-	app.browserscope.getResults(function( data ) {
+	app.browserscope.getResults( BrowserScope.browsers.minor, function( data ) {
 		var table = $( $( "#test-results" ).html() ),
 			tbody = table.find( "tbody" );
 		$.each( data, function( browser, limits ) {

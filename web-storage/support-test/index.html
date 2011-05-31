@@ -46,5 +46,17 @@ A dialog will appear to inform you when the tests have completed.</p>
 </table>
 </script>
 
+<h2>Notes</h2>
+<ul>
+	<li>IE 9 has a problem with <a href="http://dev-test.nemikor.com/web-storage/keys">numeric indexes and bracket notation</a>.</li>
+	<li>IE 9 doesn't report <a href="http://dev-test.nemikor.com/web-storage/bracket-limit">quota errors using bracket notation</a>.</li>
+	<li>Opera prompts the user to increase localStorage (but not sessionStorage) limits when it reaches 5 MB.
+		<ul>
+			<li>Provides options of 10 MB, 15 MB, 20 MB, 40 MB, 80 MB, unlimited.</li>
+			<li>Hits the 5 MB limit with slightly less than 2 MB of actual data stored.</li>
+		</ul>
+	</li>
+</ul>
+
 </body>
 </html>

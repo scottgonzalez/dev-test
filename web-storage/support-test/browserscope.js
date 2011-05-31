@@ -39,7 +39,12 @@ $.extend( BrowserScope.prototype, {
 		$.getScript( this._resultsUrl( "js", browsers ) );
 	},
 
-	getResults: function( fn, browsers ) {
+	getResults: function( browsers, fn ) {
+		if ( !fn ) {
+			fn = browsers;
+			browsers = undefined;
+		}
+
 		$.ajax({
 			url: this._resultsUrl( "json", browsers ),
 			dataType: "jsonp",
