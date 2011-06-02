@@ -80,7 +80,7 @@ function renderResults() {
 		$.each( data, function( browser, limits ) {
 			var html = "<tr><td>" + browser + "</td>" +
 			$.map( app.storageTypes, function( storageType ) {
-				var limit = parseInt( limits[ storageType ], 10 ) || 0;
+				var limit = parseInt( limits[ storageType ].replace( ",", "" ), 10 ) || 0;
 				if ( !limit ) {
 					return "<td class='none'>none</td>";
 				}
