@@ -2,15 +2,17 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Firefox 4.0 bug: localStorage.keys() out-of-sync with cross-page updates</title>
+	<title>#662511 - localStorage.key() gets out-of-sync when localStorage is updated in a separate window</title>
 </head>
 <body>
 
-<iframe id="iframe" src="localstorage-keys-cross-page-iframe.html"></iframe>
-<p>Firefox 4.0 doesn't update localStorage keys when a value is stored in another window.
-To work around this, simply access localStorage.length and the keys will update.
-This works properly in earlier versions of Firefox.</p>
+<p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=662511">
+#662511 - localStorage.key() gets out-of-sync when localStorage is updated in a separate window</a></p>
+<p>Firefox 4.0 doesn't update localStorage keys when a value is stored in another window.</p>
+<p>To work around this, simply access localStorage.length and the keys will update.</p>
+<p>This works properly in earlier versions of Firefox.</p>
 
+<iframe id="iframe" src="localstorage-keys-cross-page-iframe.html"></iframe>
 <script>
 localStorage.clear();
 localStorage.setItem( "page1", "page1" );
