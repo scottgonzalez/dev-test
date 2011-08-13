@@ -6,12 +6,13 @@
 	<script>
 	window.onload = function() {
 		var elem = document.getElementById( "elem" ),
-			pre = elem.scrollWidth,
-			post;
+			p = document.createElement( "p" );
+		p.innerHTML = "without overflow: " + elem.scrollWidth;
+		document.body.appendChild( p );
 		elem.style.overflow = "scroll";
-		post = elem.scrollWidth;
-		alert( "without overflow: " + pre + "\n" +
-			"with overflow: " + post);
+		p = document.createElement( "p" );
+		p.innerHTML = "with overflow: " + elem.scrollWidth;
+		document.body.appendChild( p );
 	};
 	</script>
 </head>
