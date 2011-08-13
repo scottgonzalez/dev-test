@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>#678678 - scrollWidth/Height doesn't account for absolutely positioned overflown content</title>
+	<script>
+	window.onload = function() {
+		var elem = document.getElementById( "elem" ),
+			pre = elem.scrollWidth,
+			post;
+		elem.style.overflow = "scroll";
+		post = elem.scrollWidth;
+		alert( "without overflow: " + pre + "\n" +
+			"with overflow: " + post);
+	};
+	</script>
+</head>
+<body>
+
+<p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=678678">
+#678678 - scrollWidth/Height doesn't account for absolutely positioned overflown content</a></p>
+
+<div id="elem" style="position: relative; width: 100px; height: 100px;">
+	<div style="position: absolute; width: 200px; height: 200px;"></div>
+</div>
+
+</body>
+</html>
