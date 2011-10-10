@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>#693288 - Pressing escape undoes programmatic value changes in text input</title>
+	<script>
+	window.onload = function() {
+		var elem = document.getElementById( "elem" );
+		elem.addEventListener( "keypress", function( event ) {
+			if ( event.keyCode === 13 ) {
+				elem.value = "press escape";
+			}
+		}, false );
+	};
+	</script>
+</head>
+<body>
+
+<p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=693288">
+#693288 - Pressing escape undoes programmatic value changes in text input</a></p>
+<p>Type a value into the text field.</p>
+<p>Press enter and the value will be programmatically changed.</p>
+<p>Press escape and the value will fall back to the previously typed value.</p>
+<p>Firefox is the only browser that exhibits this behavior.</p>
+
+<input id="elem">
+
+</body>
+</html>
