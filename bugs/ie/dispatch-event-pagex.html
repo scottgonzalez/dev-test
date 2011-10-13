@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>IE Bug: event.initMouseEvent() doesn't calculate pageX or pageY</title>
+	<script>
+	window.onload = function() {
+		var event = document.createEvent( "MouseEvents" );
+		event.initMouseEvent( "click", true, true, window,
+			0, 0, 0, 50, 100, false, false, false, false, 0, null );
+		alert( event.pageX );
+	};
+	</script>
+</head>
+<body>
+
+<div id="elem"></div>
+
+<p>IE 9 supports event.initMouseEvent() but does not set pageX or pageY based on the clientX and clientY parameters.</p>
+
+</body>
+</html>
