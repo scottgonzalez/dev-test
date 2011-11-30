@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Number input restores value after being hidden and cleared</title>
+	<script>
+	window.onload = function() {
+		var elem = document.getElementById( "elem" );
+		elem.style.display = "none";
+		setTimeout(function() {
+			elem.value = "";
+			elem.style.display = "inline";
+		}, 1 );
+	};
+	</script>
+</head>
+<body>
+
+<p>In Opera, when an &lt;input type="number"> has its value cleared while it's hidden,
+the value is restored to the previous value when it is shown again.</p>
+<p>If the value is set to another number, insead of being cleared, the bug does not occur.</p>
+
+<input id="elem" type="number" value="123">
+
+</body>
+</html>
