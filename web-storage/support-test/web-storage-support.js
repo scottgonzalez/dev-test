@@ -1,11 +1,5 @@
 (function( $ ) {
 
-/* userData is not tested for two reasons:
- * 1) There doesn't appear to be any way to clear userData (can't detect what
- * data already exists).
- * 2) Microsoft publicly documents the limits.
- */
-
 var storage = {
 	localStorage: {
 		setup: function( done ) {
@@ -118,8 +112,8 @@ var storage = {
 };
 
 window.app = {
-	packet: new Array( 1025 ).join( "a" ), // 1 KB
-	maxPackets: 1024 * 10, // 20 MB
+	packet: new Array( 1025 ).join( "a" ), // 1 k
+	maxPackets: 1024 * 10, // 20 M
 	storageTypes: [],
 
 	test: function( type, complete, step ) {

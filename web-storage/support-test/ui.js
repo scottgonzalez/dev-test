@@ -14,13 +14,13 @@ function test( type, complete ) {
 		} else if ( status === true ) {
 			log.text( type + ": unlimited storage" );
 		} else {
-			log.text( type + ": limited to " + status + " KB" );
+			log.text( type + ": limited to " + status + " k characters" );
 		}
 		complete( status );
 	}
 
 	function step( index ) {
-		log.text( type + ": " + index + " KB" );
+		log.text( type + ": " + index + " k characters" );
 		progressbar.progressbar( "option", "value", index );
 	}
 
@@ -64,10 +64,10 @@ function runTests() {
 function renderResults() {
 	function formatNumber( num ) {
 
-		var label = "KB";
+		var label = "k";
 		if ( num > 1024 ) {
 			num /= 1024;
-			label = "MB";
+			label = "M";
 		}
 		num = Math.floor( num * 100 ) / 100;
 

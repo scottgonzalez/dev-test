@@ -17,7 +17,7 @@
 
 <h1 class="ui-widget-header ui-corner-all">Web Storage Support Test</h1>
 
-<p>This page will test whether your browser support localStorage, sessionStorage or globalStorage.</p>
+<p>This page will test whether your browser supports localStorage, sessionStorage or globalStorage.</p>
 <p>The tests will also determine if there is a storage limit for any storage system that is supported.</p>
 
 <button id="run-tests">Run Web Storage Tests</button>
@@ -29,6 +29,15 @@ Your browser may pause the tests if the window becomes inactive.<br>
 A dialog will appear to inform you when the tests have completed.</p>
 
 <h2>Results from previous test runs</h2>
+
+<p class="ui-state-highlight ui-corner-all notice">These tests determine how many characters can be stored.
+Many developers assume that one character equals one byte, but this is not a safe assumption.
+Strings in JavaScript are UTF-16, so each character requires two bytes of memory.
+This means that while many browsers have a 5 MB limit, you can only store 2.5 M characters.
+Browsers are free to store the data on disk however they want, so measuring actual bytes isn't possible.
+Developers will generally only care how many characters they can store anyway,
+since that's what they can measure in their apps.</p>
+
 <script src="http://www.browserscope.org/ua?o=js"></script>
 
 <script type="text/html" id="test-results">
@@ -50,17 +59,6 @@ A dialog will appear to inform you when the tests have completed.</p>
 <ul>
 	<li>IE 9 has a problem with <a href="http://dev-test.nemikor.com/web-storage/keys">numeric indexes and bracket notation</a>.</li>
 	<li>IE 9 doesn't report <a href="http://dev-test.nemikor.com/web-storage/bracket-limit">quota errors using bracket notation</a>.</li>
-	<li>Opera prompts the user to increase localStorage (but not sessionStorage) limits when it reaches 5 MB.
-		<ul>
-			<li>Provides options of 10 MB, 15 MB, 20 MB, 40 MB, 80 MB, unlimited.</li>
-			<li>Hits the 5 MB limit with slightly less than 2 MB of actual data stored.</li>
-		</ul>
-	</li>
-	<li>Opera Mobile prompts the user to increase localStorage limits when it reaches 1 MB, 2 MB, 4 MB, 8 MB, 16 MB...
-		<ul>
-			<li>Hits the 1 MB limit with slightly less than 400 KB of actual data stored.</li>
-		</ul>
-	</li>
 </ul>
 
 <script>
