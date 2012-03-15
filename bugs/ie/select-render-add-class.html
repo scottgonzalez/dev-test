@@ -10,6 +10,9 @@
 	<script>
 	window.onload = function() {
 		document.getElementById( "wrapper" ).className = "big";
+
+		// The only known fix so far is to explicitly set the zoom
+		//document.getElementsByTagName( "select" )[0].style.zoom = 1;
 	};
 	</script>
 </head>
@@ -23,6 +26,8 @@
 
 <p>Dynamically adding a class which changes the font size causes select elements
 to render incorrectly.</p>
+<p>This affects IE 8 and 9. The bug is present up to and including IE 10 Developer Preview 10.0.8102.0, but is fixed in IE 10 PP4 10.0.8103.0.</p>
+<p>Setting style.zoom after adding the class fixes the bug, but adding zoom to the classes does not.</p>
 
 </body>
 </html>
