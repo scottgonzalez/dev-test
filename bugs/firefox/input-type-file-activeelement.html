@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>#561664 - document.activeElement should never return native anonymous content</title>
+	<script>
+	window.onload = function() {
+		var elem = document.getElementById( "elem" );
+		elem.addEventListener( "focus", function( event ) {
+			console.log( "file input", this );
+			console.log( "active element", document.activeElement );
+		}, false );
+	};
+	</script>
+</head>
+<body>
+
+<p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=561664">
+#561664 - document.activeElement should never return native anonymous content</a></p>
+<p>Focus the input by clicking on the text portion of the field.</p>
+<p>The active element will be a text input.</p>
+
+<input id="elem" type="file">
+
+</body>
+</html>
