@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Keyboard Event Support</title>
+	<style>
+	table {
+		border: 1px solid #000;
+		border-collapse: collapse;
+	}
+	th, td {
+		border: 1px solid #000;
+		padding: 5px 10px;
+	}
+	td.no {
+		background-color: #f66;
+	}
+	td.mixed {
+		background-color: #ff6;
+	}
+	td.yes {
+		background-color: #6f6;
+	}
+	code {
+		background-color: #ddf;
+		padding: 2px 5px;
+		border-radius: 2px;
+	}
+	</style>
+	<script>
+	window.onload = function() {
+		var cells = document.getElementsByTagName( "td" );
+		for ( var i = 0; i < cells.length; i++ ) {
+			cells[ i ].className = cells[ i ].innerHTML;
+		}
+	};
+	</script>
+</head>
+<body>
+
+<h1>Keyboard Event Support</h1>
+
+<p>This page outlines browser support for
+	<a href="http://www.w3.org/TR/2001/WD-DOM-Level-3-Events-20010410/events.html#Events-KeyEvent">KeyEvent</a>
+	and <a href="http://www.w3.org/TR/DOM-Level-3-Events/#events-KeyboardEvent">KeyboardEvent</a>.</p>
+
+<p>The results are based on the <a href="support-test.html">accompanying support test</a>.<br>
+	"object" shows whether the constructor is exposed as a global.<br>
+	"create" shows whether you can create an event using <code>document.createEvent()</code>.</p>
+
+<table>
+	<thead>
+		<tr>
+			<th>Browser</th>
+			<th colspan="2">KeyEvent</th>
+			<th colspan="2">KeyEvents</th>
+			<th colspan="2">KeyboardEvent</th>
+			<th colspan="2">KeyboardEvents</th>
+		</tr>
+		<tr>
+			<th></th>
+			<th>object</th>
+			<th>create</th>
+			<th>object</th>
+			<th>create</th>
+			<th>object</th>
+			<th>create</th>
+			<th>object</th>
+			<th>create</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>IE 6</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+		</tr>
+		<tr>
+			<td>IE 7</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+		</tr>
+		<tr>
+			<td>IE 8</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+		</tr>
+		<tr>
+			<td>IE 9</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>yes</td>
+			<td>yes</td>
+			<td>no</td>
+			<td>no</td>
+		</tr>
+		<tr>
+			<td>IE 10</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>yes</td>
+			<td>yes</td>
+			<td>no</td>
+			<td>no</td>
+		</tr>
+		<tr>
+			<td>Firefox 3.6</td>
+			<td>yes</td>
+			<td>no</td>
+			<td>no</td>
+			<td>yes</td>
+			<td>yes</td>
+			<td>yes</td>
+			<td>no</td>
+			<td>no</td>
+		</tr>
+		<tr>
+			<td>Firefox 4+</td>
+			<td>yes</td>
+			<td>no</td>
+			<td>no</td>
+			<td>yes</td>
+			<td>yes</td>
+			<td>yes</td>
+			<td>no</td>
+			<td>no</td>
+		</tr>
+		<tr>
+			<td>Opera 11.5</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+		</tr>
+		<tr>
+			<td>Opera 11.6</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+		</tr>
+		<tr>
+			<td>Opera 12</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>mixed</td>
+			<td>yes</td>
+			<td>no</td>
+			<td>no</td>
+		</tr>
+		<tr>
+			<td>Chrome 22</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>yes</td>
+			<td>yes</td>
+			<td>no</td>
+			<td>yes</td>
+		</tr>
+		<tr>
+			<td>Safari 4.0</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>yes</td>
+			<td>yes</td>
+			<td>no</td>
+			<td>yes</td>
+		</tr>
+		<tr>
+			<td>Safari 5.0</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>yes</td>
+			<td>yes</td>
+			<td>no</td>
+			<td>yes</td>
+		</tr>
+		<tr>
+			<td>Safari 5.1</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>no</td>
+			<td>yes</td>
+			<td>yes</td>
+			<td>no</td>
+			<td>yes</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>Note: Opera 12 returns a false negative for <code>"KeyboardEvent" in window</code>
+	until you call <code>document.createEvent( "KeyboardEvent" )</code>. This is
+	fixed in Opera Next.</p>
+
+</body>
+</html>

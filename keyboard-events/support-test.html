@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Keyboard Event Support Test</title>
+	<script>
+	window.onload = function() {
+
+	var type, success;
+	var types = [ "KeyEvent", "KeyEvents", "KeyboardEvent", "KeyboardEvents" ];
+
+	var results = document.getElementById( "results" );
+	function log( msg, success ) {
+		var li = document.createElement( "li" );
+		var text = document.createTextNode( msg );
+		li.appendChild( text );
+		li.className = success ? "success" : "error";
+		results.appendChild( li );
+	}
+
+	for ( var i = 0; i < types.length; i++ ) {
+		type = types[ i ];
+		success = type in window;
+		log( type + " object exists" , success );
+
+		try {
+			document.createEvent( type );
+			success = true;
+		} catch( error ) {
+			success = false;
+		}
+		log( "createEvent( \"" + type + "\" )", success );
+	}
+
+	};
+	</script>
+	<style>
+	.success { color: green; }
+	.error { color: red; }
+	</style>
+</head>
+<body>
+
+<p>This is a support test to generate data about KeyEvent and KeyboardEvent.</p>
+<p>For a compiled set of results, see
+	<a href="http://dev-test.nemikor.com/keyboard-events/">
+		http://dev-test.nemikor.com/keyboard-events/</a>.</p>
+
+<ul id="results"></ul>
+
+</body>
+</html>
