@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>IE Bug: List style is ignored when dynamically showing an element</title>
+	<style>
+	.menu { list-style: none; }
+	</style>
+	<script>
+	window.onload = function() {
+		var menu = document.getElementById( "menu" );
+		menu.className = "menu";
+		menu.style.display = "none";
+		setTimeout(function() {
+			menu.style.display = "";
+		});
+	}
+	</script>
+</head>
+<body>
+
+<ul id="menu">
+	<li>list item</li>
+</ul>
+
+<p>Dynamically adding a class which changes the list style results in the default list style being used.</p>
+<p>The element must be shown with a delay in order for the bug to be present.</p>
+<p>This only affects IE10.</p>
+
+</body>
+</html>
