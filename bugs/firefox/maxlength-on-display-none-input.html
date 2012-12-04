@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>#818270 - Changing maxlength on an input with display: none doesn't change the maxlength</title>
+	<script>
+	window.onload = function() {
+		document.getElementById( "toggle" ).addEventListener( "click", function( event ) {
+			var elem = document.getElementById( "elem" );
+			elem.maxlength = 10;
+			elem.style.display = "";
+		});
+	};
+	</script>
+</head>
+<body>
+
+<p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=818270">
+#818270 - Changing maxlength on an input with display: none doesn't change the maxlength</a></p>
+<p>Click the button to change the maxlength from 4 to 10.</p>
+
+<input id="elem" maxlength="4" style="display: none;">
+<button id="toggle">Click me</button>
+
+</body>
+</html>
