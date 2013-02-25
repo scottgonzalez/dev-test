@@ -12,11 +12,14 @@
 		height: 200px;
 	}
 	#green {
-		background-color: green;
+		background-color: #0f0;
 	}
 	#red {
-		background-color: red;
+		background-color: #f00;
 		display: none;
+	}
+	#red:hover {
+		background-color: #faa;
 	}
 	</style>
 	<script>
@@ -44,6 +47,7 @@
 <p>Wait a second for the red box to appear.</p>
 <p>The mouse has now left the previous element and entered a new element,
 	so it seems that mouseout and mouseover should fire.</p>
+<p>The red box also has :hover detection; when hovered, the box will be pink.</p>
 <p>Firefox is the only browser that exhibits this behavior.</p>
 
 <div id="green"></div>
