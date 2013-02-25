@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Should showing an element under the cursor cause a mouseover event?</title>
+	<style>
+	#green, #red {
+		position: absolute;
+		top: 400px;
+		left: 200px;
+		width: 200px;
+		height: 200px;
+	}
+	#green {
+		background-color: green;
+	}
+	#red {
+		background-color: red;
+		display: none;
+	}
+	</style>
+	<script>
+	window.onload = function() {
+		var timer;
+		var green = document.getElementById( "green" );
+		var red = document.getElementById( "red" );
+		green.addEventListener( "mousemove", function() {
+			clearTimeout( timer );
+			timer = setTimeout(function() {
+				red.style.display = "block";
+			}, 1000 );
+		}, false );
+
+		red.addEventListener( "mouseover", function() {
+			red.innerHTML = "mouseover fired";
+		}, false );
+	};
+	</script>
+</head>
+<body>
+
+<p>Should showing an element under the cursor cause a mouseover event?</a></p>
+<p>Move the cursor over the green box.</p>
+<p>Wait a second for the red box to appear.</p>
+<p>The mouse has now left the previous element and entered a new element,
+	so it seems that mouseout and mouseover should fire.</p>
+<p>Firefox is the only browser that exhibits this behavior.</p>
+
+<div id="green"></div>
+<div id="red"></div>
+
+</body>
+</html>
