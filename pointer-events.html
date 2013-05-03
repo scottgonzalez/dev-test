@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Pointer/Touch/Mouse Events</title>
+	<style>
+	p {
+		margin: 0;
+		padding: 0;
+	}
+	</style>
+	<script>
+	window.onload = function() {
+
+	var events = [
+		"mousedown",
+		"mousemove",
+		"mouseup",
+		"mouseover",
+		"mouseout",
+		"mouseenter",
+		"mouseleave",
+
+		"touchstart",
+		"touchmove",
+		"touchend",
+		"touchcancel",
+
+		"pointerdown",
+		"pointermove",
+		"pointerup",
+		"pointercancel",
+		"pointerover",
+		"pointerout",
+		"pointerenter",
+		"pointerleave",
+
+		"MSPointerDown",
+		"MSPointerMove",
+		"MSPointerUp",
+		"MSPointerCancel",
+		"MSPointerOver",
+		"MSPointerOut",
+		"MSPointerEnter",
+		"MSPointerLeave",
+
+		"click",
+		"dblclick",
+		"contextmenu"
+	];
+
+	var outerElem = document.getElementById( "outer" );
+	for ( var i = 0; i < events.length; i++ ) {
+		outerElem.addEventListener( events[ i ], log );
+	}
+
+	var logElem = document.getElementById( "log" );
+	function log( event ) {
+		var p = document.createElement( "p" );
+		p.innerHTML = event.type + " - " + event.target.id;
+		logElem.insertBefore( p, logElem.firstChild );
+		console.log( event.type, event );
+	};
+
+	};
+	</script>
+</head>
+<body id="body">
+
+<div id="outer" style="padding: 50px; background: #aaf;">
+	<div id="inner" style="width: 200px; height: 100px; background: #afa;">
+		<input id="input">
+	</div>
+</div>
+
+<div id="log"></div>
+
+</body>
+</html>
