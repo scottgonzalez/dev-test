@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>xip.io URL Generator</title>
+	<style>
+	body {
+		font-size: 20px;
+	}
+	form {
+		width: 20em;
+		margin: 0 auto;
+	}
+	label {
+		display: block;
+		margin-top: 1em;
+	}
+	input {
+		font-size: 1em;
+		display: block;
+		width: 100%;
+	}
+	button {
+		font-size: 1em;
+		width: 100%;
+		margin-top: 1em;
+	}
+	</style>
+</head>
+<body>
+
+<form id="xip">
+	<label for="ip">Your IP</label>
+	<input id="ip">
+
+	<label for="domain">Domain</label>
+	<input id="domain">
+
+	<label for="path">Path</label>
+	<input id="path">
+
+	<button type="submit">Go to xip.io!</button>
+</form>
+
+<script>
+(function() {
+
+var ip = document.getElementById( "ip" );
+var domain = document.getElementById( "domain" );
+var path = document.getElementById( "path" );
+
+ip.value = localStorage.getItem( "ip" );
+domain.value = localStorage.getItem( "domain" );
+path.value = localStorage.getItem( "path" );
+
+document.getElementById( "xip" ).onsubmit = function( event ) {
+	event.preventDefault();
+
+	localStorage.setItem( "ip", ip.value );
+	localStorage.setItem( "domain", domain.value );
+	localStorage.setItem( "path", path.value );
+
+	document.location = "http://" + domain.value + "." + ip.value + ".xip.io/" + path.value;
+};
+
+})();
+</script>
+
+</body>
+</html>
