@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>IE Bug: input event is fired on page load for accented characters</title>
+	<script>
+	window.onload = function() {
+		var elements = document.getElementsByTagName( "input" );
+		var log = document.getElementById( "log" );
+
+		function logInput( event ) {
+			var item = document.createElement( "li" );
+			item.innerHTML = event.target.id;
+			log.appendChild( item );
+		}
+
+		for ( var i = 0; i < elements.length; i++ ) {
+			elements[ i ].addEventListener( "input", logInput, false );
+		}
+	};
+	</script>
+</head>
+<body>
+
+<input id="ascii" value="test">
+<input id="accented" value="tést">
+
+<ul id="log"></ul>
+
+<p>IE 10+ triggers an <code>input</code> event on page load if the input contains an accented character. You may need to refresh the page to see the bug.</p>
+
+</body>
+</html>
