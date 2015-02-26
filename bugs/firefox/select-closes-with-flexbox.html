@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title># - Select menu closes on hover with flexbox and mouseleave event handler</title>
+	<style>
+	body {
+		display: flex;
+
+		/* direction doesn't matter, this just makes the page visually sane */
+		flex-direction: column;
+	}
+	#other-element {
+		position: absolute;
+	}
+	</style>
+	<script>
+	window.onload = function() {
+		var select = document.querySelector( "select" );
+		var other = document.querySelector( "#other-element" );
+
+		// Even though the other element is already the last element in the
+		// body, the bug is only present if we explicitly append it again
+		select.addEventListener( "mouseover", function() {
+			document.body.appendChild( other );
+		});
+
+		// The presence of this event handler causes the bug to appear
+		select.addEventListener( "mouseleave", function() {} );
+	};
+	</script>
+</head>
+<body>
+
+<p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=">
+# - Select menu closes on hover with flexbox and mouseleave event handler</a></p>
+<p>Use the mouse to open the select via a click.</p>
+<p>Hover over the option list.</p>
+
+<div id="example">
+	<select>
+		<option>a</option>
+	</select>
+</div>
+<div id="other-element"><div>
+
+</body>
+</html>
