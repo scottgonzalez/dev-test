@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>#1137328 - Select menu closes on hover with flexbox and mouseleave event handler</title>
+	<title>#1137328 - Select menu closes with flexbox when removing an absolutely positioned element</title>
 	<style>
 	body {
 		display: flex;
@@ -10,39 +10,34 @@
 		/* direction doesn't matter, this just makes the page visually sane */
 		flex-direction: column;
 	}
-	#other-element {
+	#tooltip {
 		position: absolute;
 	}
 	</style>
 	<script>
 	window.onload = function() {
 		var select = document.querySelector( "select" );
-		var other = document.querySelector( "#other-element" );
+		var tooltip = document.querySelector( "#tooltip" );
 
-		// Even though the other element is already the last element in the
-		// body, the bug is only present if we explicitly append it again
-		select.addEventListener( "mouseover", function() {
-			document.body.appendChild( other );
+		select.addEventListener( "click", function() {
+			document.body.removeChild( tooltip );
 		});
-
-		// The presence of this event handler causes the bug to appear
-		select.addEventListener( "mouseleave", function() {} );
 	};
 	</script>
 </head>
 <body>
 
 <p><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1137328">
-#1137328 - Select menu closes on hover with flexbox and mouseleave event handler</a></p>
+#1137328 - Select menu closes with flexbox when removing an absolutely positioned element</a></p>
 <p>Use the mouse to open the select via a click.</p>
-<p>Hover over the option list.</p>
+<p>The option list will open and then immediately close.</p>
 
 <div id="example">
 	<select>
 		<option>a</option>
 	</select>
 </div>
-<div id="other-element"><div>
+<div id="tooltip"><div>
 
 </body>
 </html>
